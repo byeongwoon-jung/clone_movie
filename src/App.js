@@ -1,5 +1,12 @@
 import styles from "./App.module.css";
 import { useState, useEffect } from "react";
+function Hello() {
+  useEffect(() => {
+    console.log("created!");
+    return () => console.log("detroyed!");
+  }, []);
+  return <h1>Hello</h1>;
+}
 function App() {
   const [counter, setValue] = useState(0);
   const onClick = () => setValue((prev) => prev + 1);
@@ -15,6 +22,9 @@ function App() {
       console.log("search for ", keyword);
     }
   }, [keyword]);
+
+  const [showing, setShowing] = useState(false);
+  const onClick2 = () => setShowing((prev) => !prev);
   return (
     <div>
       <h1 className={styles.title}>Welcom bak!</h1>
@@ -26,6 +36,9 @@ function App() {
         value={keyword}
       />
       <button onClick={onClick}>Click me!!! </button>
+      <hr />
+      <button onClick={onClick2}>{showing ? "Hide" : "Show"}</button>
+      {showing ? <Hello /> : null}
     </div>
   );
 }
