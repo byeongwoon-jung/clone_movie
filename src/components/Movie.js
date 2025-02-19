@@ -15,7 +15,7 @@ function Movie({ id, coverImg, title, summary, genres }) {
   return (
     <div style={{ display: "flex", marginBottom: "20px" }}>
       {/* 포스터 이미지 */}
-      <Link to="/movie">
+      <Link to={`/movie/${id}`}>
         <img
           src={coverImg}
           alt={title}
@@ -24,24 +24,25 @@ function Movie({ id, coverImg, title, summary, genres }) {
       </Link>
       <div>
         <h2>
-          <Link to="/movie">{title}</Link>
+          <Link to={`/movie/${id}`}>{title}</Link>
         </h2>
         {/* 장르를 한 줄로 표시 */}
         <div style={{ marginBottom: "10px" }}>
-          {genres.map((genre, index) => (
-            <span
-              key={index}
-              style={{
-                display: "inline-block",
-                marginRight: "10px",
-                padding: "5px",
-                backgroundColor: "#f0f0f0",
-                borderRadius: "5px",
-              }}
-            >
-              {genre}
-            </span>
-          ))}
+          {genres &&
+            genres.map((genre, index) => (
+              <span
+                key={index}
+                style={{
+                  display: "inline-block",
+                  marginRight: "10px",
+                  padding: "5px",
+                  backgroundColor: "#f0f0f0",
+                  borderRadius: "5px",
+                }}
+              >
+                {genre}
+              </span>
+            ))}
         </div>
 
         {/* 요약 텍스트 */}
@@ -73,7 +74,7 @@ function Movie({ id, coverImg, title, summary, genres }) {
 }
 
 Movie.propTypes = {
-  id: PropTypes.string,
+  id: PropTypes.string.isRequired,
   coverImg: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   summary: PropTypes.string.isRequired,
