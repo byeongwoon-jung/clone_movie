@@ -22,11 +22,22 @@ function Detail() {
   }, []);
 
   return (
-    <div style={{ textAlign: "center" }}>
+    <div align="center">
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <div>
+        <div
+          style={{
+            width: "40%",
+            margin: "20px 1%",
+            padding: "20px",
+            borderRadius: "12px",
+            backgroundColor: "#fff",
+            boxShadow: "0 8px 16px rgba(0,0,0,0.1)",
+            overflow: "visible",
+            textAlign: "center",
+          }}
+        >
           <h1>
             {detail.title} (★{detail.rating})
           </h1>
