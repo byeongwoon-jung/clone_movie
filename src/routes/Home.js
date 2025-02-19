@@ -8,7 +8,7 @@ function Home() {
   // 영화 정보가져오기
   const getMovies = async () => {
     const response = await fetch(
-      "https://yts.mx/api/v2/list_movies.json?minimum_rating=8&sort_by=year"
+      "https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=year"
     );
 
     const json = await response.json();
